@@ -74,19 +74,19 @@ export default function Opening() {
           <Reveal delay={320}>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
-                href="#ateliers"
+                href="#/animations"
                 className="group font-mono text-xs tracking-[0.2em] uppercase font-semibold px-6 py-3.5 bg-orangeT text-ink hover:bg-yellowT transition-colors inline-flex items-center gap-3"
               >
-                Explorer les ateliers
+                Explorer le labo
                 <span className="transition-transform group-hover:translate-x-1.5" aria-hidden>
                   →
                 </span>
               </a>
               <a
-                href="#programme"
+                href="#/cours"
                 className="font-mono text-xs tracking-[0.2em] uppercase px-6 py-3.5 border border-fog/50 text-snow hover:border-cyanT hover:text-cyanT transition-colors"
               >
-                Voir le programme
+                Voir les cours
               </a>
             </div>
           </Reveal>
@@ -94,7 +94,7 @@ export default function Opening() {
           <Reveal delay={400}>
             <div className="mt-9 flex flex-wrap gap-2.5 font-mono text-[11px] tracking-[0.14em] uppercase text-fog">
               {[
-                ["5 ateliers animés", "bg-orangeT"],
+                ["11 machines au labo", "bg-orangeT"],
                 ["6e → 3e", "bg-cyanT"],
                 ["12 ressources", "bg-yellowT"],
                 ["quiz d'évaluation", "bg-greenT"],
@@ -271,7 +271,7 @@ export default function Opening() {
 
       {/* indice de scroll */}
       <div className="max-w-7xl mx-auto px-5 sm:px-8 pb-8 flex items-center justify-between">
-        <a href="#ateliers" className="font-mono text-[11px] tracking-[0.25em] uppercase text-fog hover:text-cyanT transition-colors flex items-center gap-3">
+        <a href="#/animations" className="font-mono text-[11px] tracking-[0.25em] uppercase text-fog hover:text-cyanT transition-colors flex items-center gap-3">
           <span className="inline-block floaty text-orangeT text-base" aria-hidden>▾</span>
           Dérouler le plan
         </a>

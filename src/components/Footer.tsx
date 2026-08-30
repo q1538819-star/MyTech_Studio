@@ -16,11 +16,12 @@ export default function Footer() {
             </p>
             <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[11px] tracking-[0.18em] uppercase">
               {[
-                ["#ateliers", "Ateliers"],
-                ["#methode", "Méthode"],
-                ["#programme", "Programme"],
-                ["#ressources", "Ressources"],
-                ["#quiz", "Quiz"],
+                ["#/", "Accueil"],
+                ["#/animations", "Le labo"],
+                ["#/cours", "Cours"],
+                ["#/projets", "Projets"],
+                ["#/ressources", "Ressources"],
+                ["#/quiz", "Quiz"],
               ].map(([h, l]) => (
                 <a key={h} href={h} className="text-fog hover:text-orangeT transition-colors">
                   {l}
@@ -55,8 +56,8 @@ export default function Footer() {
           <p className="font-mono text-[10.5px] tracking-[0.14em] uppercase text-fog/70">
             © 2025–2026 MyTech Studio — planche finale · bon pour accord
           </p>
-          <a href="#top" className="font-mono text-[10.5px] tracking-[0.18em] uppercase text-fog hover:text-yellowT transition-colors">
-            ↑ Remonter la planche
+          <a href="#/" className="font-mono text-[10.5px] tracking-[0.18em] uppercase text-fog hover:text-yellowT transition-colors">
+            ↑ Retour à l'accueil
           </a>
         </div>
       </div>

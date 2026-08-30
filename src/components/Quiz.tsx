@@ -15,7 +15,7 @@ const QUESTIONS = [
     why: "Les dents se poussent l'une l'autre : la roue menée tourne forcément en sens inverse de la menante.",
   },
   {
-    q: "Une roue menante de 10 dents tourne à 60 tr/min et entraîne une roue menée de 30 dents. À quelle vitesse tourne la menée ?",
+    q: "Une roue menante de 10 dents entraîne une roue de 30 dents. Si la menante tourne à 60 tr/min, la menée tourne à…",
     opts: ["180 tr/min", "60 tr/min", "30 tr/min", "20 tr/min"],
     good: 3,
     why: "N₂ = N₁ × Z₁/Z₂ = 60 × 10/30 = 20 tr/min : trois fois plus de dents, trois fois moins vite.",
@@ -43,6 +43,36 @@ const QUESTIONS = [
     opts: ["Un détecteur infrarouge (PIR)", "Une résistance", "Un relais", "Un transformateur"],
     good: 0,
     why: "Le capteur PIR perçoit le rayonnement infrarouge émis par le corps humain : parfait pour allumer à notre passage.",
+  },
+  {
+    q: "La puissance électrique s'exprime en…",
+    opts: ["Joules", "Watts", "Ampères", "Ohms"],
+    good: 1,
+    why: "La puissance P = U × I se mesure en watts (W). Le joule, lui, mesure l'énergie consommée.",
+  },
+  {
+    q: "Laquelle de ces sources d'énergie est renouvelable ?",
+    opts: ["Le charbon", "Le gaz naturel", "Le vent", "L'uranium"],
+    good: 2,
+    why: "Le vent (énergie éolienne) se renouvelle en permanence, contrairement aux combustibles fossiles et fissiles.",
+  },
+  {
+    q: "Dans un système automatique, le composant qui « sent » le monde réel (température, présence…) est…",
+    opts: ["L'actionneur", "Le capteur", "Le micro-contrôleur", "L'afficheur"],
+    good: 1,
+    why: "Le capteur ACQUIERT l'information ; le programme la traite ; l'actionneur agit sur le réel.",
+  },
+  {
+    q: "L'acier, le cuivre et l'aluminium appartiennent à la famille des…",
+    opts: ["Minéraux", "Plastiques", "Composites", "Métaux"],
+    good: 3,
+    why: "Tous trois sont des métaux : bons conducteurs électriques et thermiques, recyclables à l'infini.",
+  },
+  {
+    q: "Pour rendre une structure plus rigide sans l'alourdir beaucoup, on…",
+    opts: ["Ajoute des triangles", "Épaissit toutes les barres", "Supprime les appuis", "La peint"],
+    good: 0,
+    why: "Le triangle est la seule figure indéformable : c'est la triangulation, utilisée dans les ponts et les grues.",
   },
 ];
 
@@ -85,12 +115,12 @@ export default function Quiz() {
 
   return (
     <section id="quiz" className="bg-blueprint relative overflow-hidden">
-      <div className="max-w-4xl mx-auto px-5 sm:px-8 py-20 sm:py-28">
+      <div className="max-w-4xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
         <SectionHead
           index="Évaluation"
-          kicker="Contrôle des connaissances"
+          kicker="Contrôle des connaissances · 12 questions"
           title="Le quiz du technologue"
-          desc="Sept questions pour vérifier que les ateliers ont laissé des traces. Réponse immédiate, explication incluse — comme en classe, mais sans la sonnerie."
+          desc="Douze questions couvrant tout le cycle 4 : énergie, mécanique, logique, électricité, programmation, matériaux et structures. Réponse immédiate, explication incluse — comme en classe, mais sans la sonnerie."
         />
 
         <Reveal delay={150}>
@@ -102,8 +132,7 @@ export default function Quiz() {
               </span>
             </div>
 
-            {/* progression */}
-            <div className="flex gap-1 px-5 pt-4">
+            <div className="flex gap-1 px-5 pt-4" aria-hidden>
               {QUESTIONS.map((_, i) => (
                 <span
                   key={i}
@@ -111,7 +140,6 @@ export default function Quiz() {
                   style={{
                     background: i < history.length ? (history[i] ? "#7bd88f" : "#e8442e") : i === num && !done ? "#ffc53d" : "#24405c",
                   }}
-                  aria-hidden
                 />
               ))}
             </div>
@@ -170,20 +198,20 @@ export default function Quiz() {
                   ) : pct >= 40 ? (
                     <Stamp className="border-yellowT text-yellowT text-sm">Presque — on revoit 2 ou 3 trucs</Stamp>
                   ) : (
-                    <Stamp className="border-redT text-redT text-sm">Retour aux ateliers conseillé</Stamp>
+                    <Stamp className="border-redT text-redT text-sm">Retour au labo conseillé</Stamp>
                   )}
                 </div>
                 <p className="mt-6 max-w-md mx-auto text-fog text-[14.5px] leading-relaxed">
                   {pct >= 70
-                    ? "Bravo ! La chaîne d'énergie, les engrenages et la logique n'ont plus de secret pour toi."
-                    : "Rejoue les ateliers ci-dessus : manipuler, c'est la meilleure façon de retenir. Puis reviens battre ton score."}
+                    ? "Bravo ! Énergie, engrenages, logique et réseaux n'ont plus de secret pour toi."
+                    : "Rejoue les machines du labo : manipuler, c'est la meilleure façon de retenir. Puis reviens battre ton score."}
                 </p>
                 <div className="mt-8 flex flex-wrap justify-center gap-3">
                   <button onClick={restart} className="font-mono text-xs tracking-[0.2em] uppercase px-6 py-3 bg-orangeT text-ink font-semibold hover:bg-yellowT transition-colors cursor-pointer">
                     ↻ Recommencer le quiz
                   </button>
-                  <a href="#energie" className="font-mono text-xs tracking-[0.2em] uppercase px-6 py-3 border border-fog/50 text-snow hover:border-cyanT hover:text-cyanT transition-colors">
-                    Revoir les ateliers
+                  <a href="#/animations" className="font-mono text-xs tracking-[0.2em] uppercase px-6 py-3 border border-fog/50 text-snow hover:border-cyanT hover:text-cyanT transition-colors">
+                    Retourner au labo
                   </a>
                 </div>
               </div>

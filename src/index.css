@@ -284,6 +284,69 @@ input[type="range"].range-paper::-moz-range-thumb {
   border-color: var(--color-cardink);
 }
 
+@keyframes slide-x {
+  0%,
+  100% {
+    transform: translateX(-32px);
+  }
+  50% {
+    transform: translateX(32px);
+  }
+}
+.anim-slide-x {
+  transform-box: fill-box;
+  animation: slide-x var(--d, 4s) ease-in-out infinite;
+}
+
+@keyframes slide-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-22px);
+  }
+}
+.anim-slide-y {
+  transform-box: fill-box;
+  animation: slide-y var(--d, 4s) ease-in-out infinite;
+}
+
+@keyframes packetmove {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}
+.packet-run {
+  animation: packetmove 1.7s cubic-bezier(0.45, 0, 0.2, 1) forwards;
+}
+
+@keyframes pingring {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+.ping-ring {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pingring 2.2s ease-out infinite;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
 /* ---------- accessibilité mouvement ---------- */
 @media (prefers-reduced-motion: reduce) {
   html {
