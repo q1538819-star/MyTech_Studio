@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { CSSProperties } from "react";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine } from "recharts";
 import { Reveal, SectionHead } from "../lib/ui";
@@ -14,10 +14,25 @@ function windW(v: number) {
 }
 const fr = (n: number) => Math.round(n).toLocaleString("fr-FR");
 
+const MIX_FR = [
+  { src: "Nucléaire", pct: 65, c: "#ffc53d" },
+  { src: "Hydraulique", pct: 12, c: "#3fc9d8" },
+  { src: "Éolien", pct: 10, c: "#7bd88f" },
+  { src: "Gaz & charbon", pct: 6, c: "#e8442e" },
+  { src: "Solaire", pct: 4, c: "#ff7a29" },
+  { src: "Bioénergies", pct: 3, c: "#9fb6c9" },
+];
+
 export default function EnergiesLab() {
   const [h, setH] = useState(13);
   const [v, setV] = useState(22);
   const [cloud, setCloud] = useState(10);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    const t = window.setTimeout(() => setMounted(true), 150);
+    return () => window.clearTimeout(t);
+  }, []);
 
   const solar = solarW(h, cloud);
   const wind = windW(v);
@@ -188,6 +203,33 @@ export default function EnergiesLab() {
                 </div>
                 <p className="mt-4 text-[11.5px] leading-relaxed text-fog font-body">
                   Ni le soleil ni le vent ne sont constants : c'est pourquoi on <strong className="text-snow">combine les sources</strong> et on stocke l'excédent dans une batterie.
+                </p>
+              </div>
+            </Reveal>
+
+            {/* mix électrique français — données CEA / RTE */}
+            <Reveal delay={240}>
+              <div className="tech-card p-5">
+                <div className="flex items-center justify-between">
+                  <h3 className="font-mono text-[11px] tracking-[0.25em] uppercase text-orangeT">Mix électrique français</h3>
+                  <span className="font-mono text-[9px] tracking-[0.14em] uppercase text-fog/70">2023 · d'après CEA / RTE</span>
+                </div>
+                <div className="mt-4 space-y-2.5">
+                  {MIX_FR.map((m, i) => (
+                    <div key={m.src} className="grid grid-cols-[86px_1fr_38px] items-center gap-2.5 font-mono text-[10.5px]">
+                      <span className="text-fog uppercase tracking-wide">{m.src}</span>
+                      <div className="h-3.5 bg-ink border border-line/60">
+                        <div
+                          className="h-full transition-all duration-1000 ease-out"
+                          style={{ width: mounted ? `${m.pct}%` : "0%", background: m.c, transitionDelay: `${i * 110}ms` }}
+                        />
+                      </div>
+                      <span className="text-snow text-right">{m.pct} %</span>
+                    </div>
+                  ))}
+                </div>
+                <p className="mt-4 text-[11px] leading-relaxed text-fog">
+                  À l'échelle du pays aussi, on <strong className="text-snow">mixe les sources</strong> : le nucléaire fournit la base, l'hydraulique s'ajuste vite, et l'éolien + solaire montent chaque année. C'est exactement la logique de ta maison miniature.
                 </p>
               </div>
             </Reveal>

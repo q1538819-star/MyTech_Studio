@@ -163,6 +163,39 @@ const PROJETS: Projet[] = [
       { slug: "mecanismes", label: "S'entraîner : transmission" },
     ],
   },
+  {
+    nom: "Le four solaire",
+    niveau: "5e",
+    color: "#ffc53d",
+    duree: "5 séances",
+    resume: "Concentrer les rayons du soleil pour faire fondre du chocolat — ou cuire un œuf, pour les plus ambitieux.",
+    besoin: "Cuire ou chauffer un aliment sans autre source d'énergie que le soleil.",
+    fonctions: [
+      ["Température interne", "≥ 80 °C par ciel dégagé"],
+      ["Orientation", "réglable en hauteur et en azimut"],
+      ["Sécurité", "aucune surface brûlante accessible"],
+    ],
+    outils: ["Carton & miroirs", "Film réfléchissant", "Thermomètre", "Peinture noire mate"],
+    anims: [{ slug: "energies", label: "S'entraîner : énergie solaire" }],
+  },
+  {
+    nom: "La station météo de la classe",
+    niveau: "4e",
+    color: "#7bd88f",
+    duree: "9 séances",
+    resume: "Température, humidité, pression : la classe publie sa météo toutes les heures sur un tableau de bord.",
+    besoin: "Mesurer et archiver les conditions météo locales, consultables à distance.",
+    fonctions: [
+      ["Capteurs", "température ± 0,5 °C, humidité ± 3 %"],
+      ["Publication", "données envoyées toutes les heures"],
+      ["Autonomie", "fonctionne sur pile 1 semaine"],
+    ],
+    outils: ["Capteur BME280", "ESP32", "Grafana / padlet", "Abri météo"],
+    anims: [
+      { slug: "domotique", label: "S'entraîner : capteurs & règles" },
+      { slug: "reseaux", label: "S'entraîner : envoi de données" },
+    ],
+  },
 ];
 
 const NIVEAUX = ["Tous", "6e", "5e", "4e", "3e"];
@@ -179,7 +212,7 @@ export default function ProjetsPage() {
         <SectionHead
           index="Les projets"
           kicker="Du cahier des charges au prototype"
-          title="9 projets menés en classe"
+          title="11 projets menés en classe"
           desc="Chaque projet suit la démarche complète : besoin, cahier des charges, fabrication, essais. Déplie une carte pour lire son cahier des charges et retrouver les animations d'entraînement associées."
         />
 

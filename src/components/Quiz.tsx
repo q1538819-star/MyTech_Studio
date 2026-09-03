@@ -74,6 +74,18 @@ const QUESTIONS = [
     good: 0,
     why: "Le triangle est la seule figure indéformable : c'est la triangulation, utilisée dans les ponts et les grues.",
   },
+  {
+    q: "Dans un cahier des charges fonctionnel, la fonction principale (FP1) décrit…",
+    opts: ["Le prix de vente", "Le service rendu à l'utilisateur", "La couleur de l'objet", "Le nom du fabricant"],
+    good: 1,
+    why: "La FP exprime le service attendu, du point de vue de l'utilisateur. Les FC, elles, listent les contraintes à respecter.",
+  },
+  {
+    q: "Dans un algorigramme, le losange représente…",
+    opts: ["Le début du programme", "Une action à exécuter", "Un test avec deux issues possibles", "La fin du programme"],
+    good: 2,
+    why: "Le losange pose une question (oui/non) : le programme emprunte ensuite l'une des deux branches, comme dans notre barrière.",
+  },
 ];
 
 export default function Quiz() {
@@ -118,9 +130,9 @@ export default function Quiz() {
       <div className="max-w-4xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
         <SectionHead
           index="Évaluation"
-          kicker="Contrôle des connaissances · 12 questions"
+          kicker="Contrôle des connaissances · 14 questions"
           title="Le quiz du technologue"
-          desc="Douze questions couvrant tout le cycle 4 : énergie, mécanique, logique, électricité, programmation, matériaux et structures. Réponse immédiate, explication incluse — comme en classe, mais sans la sonnerie."
+          desc="Quatorze questions couvrant tout le cycle 4 : énergie, mécanique, logique, électricité, programmation, cahier des charges, algorigramme, matériaux et structures. Réponse immédiate, explication incluse — comme en classe, mais sans la sonnerie."
         />
 
         <Reveal delay={150}>

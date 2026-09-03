@@ -10,6 +10,9 @@ import AlgoLab from "../components/AlgoLab";
 import EnergiesLab from "../components/EnergiesLab";
 import ReseauxLab from "../components/ReseauxLab";
 import MecanismesLab from "../components/MecanismesLab";
+import CdcLab from "../components/CdcLab";
+import AlgorigrammeLab from "../components/AlgorigrammeLab";
+import EnergyGame from "../components/EnergyGame";
 import LabGlyph from "../components/LabGlyphs";
 import { navigate } from "../lib/router";
 
@@ -34,6 +37,8 @@ export const LABS: LabMeta[] = [
   { slug: "energies", num: "09", name: "Énergies renouvelables", tag: "Énergie", color: "#7bd88f", Comp: EnergiesLab },
   { slug: "reseaux", num: "10", name: "Voyage d'un paquet", tag: "Réseaux", color: "#3fc9d8", Comp: ReseauxLab },
   { slug: "mecanismes", num: "11", name: "Mécanismes", tag: "Mécanique", color: "#e8442e", Comp: MecanismesLab },
+  { slug: "cdc", num: "12", name: "Cahier des charges", tag: "Analyse & projet", color: "#e8442e", Comp: CdcLab },
+  { slug: "algorigramme", num: "13", name: "Algorigramme", tag: "Algorithmique", color: "#ff7a29", Comp: AlgorigrammeLab },
 ];
 
 export default function AnimationsPage({ param }: { param?: string }) {
@@ -103,6 +108,7 @@ export default function AnimationsPage({ param }: { param?: string }) {
         {/* machine active */}
         <div className="min-w-0">
           <Active />
+          {lab.slug === "energie" && <EnergyGame />}
           {/* navigation entre machines */}
           <div className="border-t border-line bg-ink2/60">
             <div className="max-w-7xl mx-auto px-5 sm:px-8 py-6 flex items-center justify-between gap-4">

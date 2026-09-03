@@ -116,6 +116,35 @@ export default function LabGlyph({ slug, color }: { slug: string; color: string 
           <line x1="26" y1="32" x2="42" y2="28" stroke={color} strokeWidth="2" className="flow-dash" />
         </svg>
       );
+    case "cdc":
+      return (
+        <svg viewBox="0 0 48 48" className="w-9 h-9">
+          <ellipse cx="24" cy="24" rx="8.5" ry="6" {...common} strokeWidth="2" />
+          {[
+            [11, 11],
+            [37, 11],
+            [8, 30],
+            [40, 30],
+            [24, 42],
+          ].map(([x, y]) => (
+            <g key={`${x}${y}`}>
+              <line x1="24" y1="24" x2={x} y2={y} stroke={color} strokeWidth="1.5" opacity="0.7" />
+              <circle cx={x} cy={y} r="3.6" {...common} strokeWidth="2" />
+            </g>
+          ))}
+        </svg>
+      );
+    case "algorigramme":
+      return (
+        <svg viewBox="0 0 48 48" className="w-9 h-9">
+          <rect x="15" y="4" width="18" height="8" rx="4" {...common} strokeWidth="2" />
+          <path d="M24 26 L33 20.5 L24 15 L15 20.5 Z" {...common} strokeWidth="2" />
+          <rect x="15" y="34" width="18" height="9" {...common} strokeWidth="2" />
+          <line x1="24" y1="12" x2="24" y2="15" stroke={color} strokeWidth="1.6" />
+          <line x1="24" y1="26" x2="24" y2="34" stroke={color} strokeWidth="1.6" />
+          <circle cx="24" cy="30" r="2" fill={color} className="pulse-ring" />
+        </svg>
+      );
     default:
       return null;
   }

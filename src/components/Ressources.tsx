@@ -1,4 +1,5 @@
 import { Reveal, SectionHead } from "../lib/ui";
+import Glossaire from "./Glossaire";
 
 const TAGCOLORS: Record<string, string> = {
   Cours: "#3567a8",
@@ -40,6 +41,7 @@ const URLS: Record<string, string> = {
 
 export default function Ressources() {
   return (
+    <>
     <section id="ressources" className="bg-seyes text-cardink relative">
       <div className="absolute top-0 bottom-0 left-10 sm:left-16 w-[2px] bg-redT/60 pointer-events-none" aria-hidden />
       <div className="max-w-7xl mx-auto px-5 sm:px-8 py-20 sm:py-28 relative">
@@ -82,5 +84,7 @@ export default function Ressources() {
         </div>
       </div>
     </section>
+    <Glossaire />
+    </>
   );
 }

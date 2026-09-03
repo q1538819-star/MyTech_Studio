@@ -260,6 +260,82 @@ const COURS: { niveau: string; color: string; intro: string; chapitres: Chapitre
   },
 ];
 
+const PLUS: Record<string, { l: string; u: string }[]> = {
+  "Le monde des objets": [
+    { l: "techno-flash · Cahier des charges fonctionnel", u: "https://techno-flash.com/animations/cahier_des_charges/cahier_des_charges_fonctionnel.html" },
+    { l: "Nathan · Technologie collège", u: "https://technologie-college.nathan.fr/" },
+  ],
+  "Les familles de matériaux": [
+    { l: "Techmania · les matériaux", u: "http://www.techmania.fr/" },
+    { l: "techno-moreau · cours 6e", u: "https://techno-moreau.fr/" },
+  ],
+  "Dessiner et représenter": [
+    { l: "Nathan · Technologie collège", u: "https://technologie-college.nathan.fr/" },
+    { l: "Padlet · T. Aubreton", u: "https://padlet.com/thierry_aubreton" },
+  ],
+  "Structures et stabilité": [
+    { l: "Techmania · les structures", u: "http://www.techmania.fr/" },
+    { l: "Lumni · vidéos techno", u: "https://www.lumni.fr/" },
+  ],
+  "L'évolution des objets": [{ l: "Lumni · vidéos techno", u: "https://www.lumni.fr/" }],
+  "Sources et formes d'énergie": [
+    { l: "CEA · animations technologies", u: "https://www.cea.fr/multimedia/Pages/animations/technologies.aspx" },
+    { l: "Lumni · l'énergie", u: "https://www.lumni.fr/" },
+  ],
+  "La chaîne d'énergie": [
+    { l: "techno-flash · Chaîne d'énergie", u: "https://techno-flash.com/animations/chaine_energie/chaine_energie.html" },
+    { l: "Techmania · l'énergie", u: "http://www.techmania.fr/" },
+  ],
+  "Circuits et schémas électriques": [
+    { l: "techno-flash · animations électricité", u: "https://techno-flash.com/" },
+    { l: "Lumni · l'électricité", u: "https://www.lumni.fr/" },
+  ],
+  "Mesures électriques": [
+    { l: "Nathan · Technologie collège", u: "https://technologie-college.nathan.fr/" },
+    { l: "techno-moreau · cours 5e", u: "https://techno-moreau.fr/" },
+  ],
+  "Transmettre le mouvement": [
+    { l: "techno-moreau · engrenages", u: "https://techno-moreau.fr/" },
+    { l: "Padlet · Techno Valdahon", u: "https://padlet.com/coursdetechnovaldahon/" },
+  ],
+  "La chaîne d'information": [
+    { l: "Lumni · vidéos techno", u: "https://www.lumni.fr/" },
+    { l: "ENT · Techno Brassens", u: "https://entechnobrassens.info/" },
+  ],
+  "Programmer avec Scratch": [
+    { l: "techno-flash · Algorithme & algorigramme", u: "https://techno-flash.com/animations/AAbfu49z/Algorithme_Algorigramme.html" },
+    { l: "Lumni · la programmation", u: "https://www.lumni.fr/" },
+  ],
+  "Logique combinatoire": [
+    { l: "techno-flash · Algorithme & algorigramme", u: "https://techno-flash.com/animations/AAbfu49z/Algorithme_Algorigramme.html" },
+    { l: "ENT2D · STI collège", u: "https://ent2d.ac-bordeaux.fr/disciplines/sti-college/" },
+  ],
+  "Automatiser un objet": [
+    { l: "Padlet · Techno Valdahon", u: "https://padlet.com/coursdetechnovaldahon/" },
+    { l: "Éduscol · ressources cycle 4", u: "https://eduscol.education.gouv.fr/5745/ressources-d-accompagnement-du-programme-de-technologie-au-cycle-4" },
+  ],
+  "Le cahier des charges": [
+    { l: "techno-flash · Cahier des charges fonctionnel", u: "https://techno-flash.com/animations/cahier_des_charges/cahier_des_charges_fonctionnel.html" },
+    { l: "Éduscol · ressources cycle 4", u: "https://eduscol.education.gouv.fr/5745/ressources-d-accompagnement-du-programme-de-technologie-au-cycle-4" },
+  ],
+  "Objets connectés & IoT": [
+    { l: "Lumni · vidéos techno", u: "https://www.lumni.fr/" },
+    { l: "Padlet · T. Aubreton", u: "https://padlet.com/thierry_aubreton" },
+  ],
+  "Réseaux et Internet": [
+    { l: "Lumni · le numérique", u: "https://www.lumni.fr/" },
+    { l: "Éduscol · ressources cycle 4", u: "https://eduscol.education.gouv.fr/5745/ressources-d-accompagnement-du-programme-de-technologie-au-cycle-4" },
+  ],
+  "Prototyper et valider": [
+    { l: "Nathan · Technologie collège", u: "https://technologie-college.nathan.fr/" },
+    { l: "techno-moreau · projets", u: "https://techno-moreau.fr/" },
+  ],
+  "Communiquer son projet": [
+    { l: "ENT2D · STI collège", u: "https://ent2d.ac-bordeaux.fr/disciplines/sti-college/" },
+    { l: "Nathan · Technologie collège", u: "https://technologie-college.nathan.fr/" },
+  ],
+};
+
 export default function CoursPage() {
   const [niv, setNiv] = useState(0);
   const [open, setOpen] = useState<number | null>(0);
@@ -346,6 +422,24 @@ export default function CoursPage() {
                               <span style={{ color: c.color }} aria-hidden>▶</span>
                               {ch.anim.label}
                             </button>
+                          )}
+                          {PLUS[ch.t] && (
+                            <div className="mt-5 border-2 border-dashed border-cardink/30 bg-paper px-4 py-3">
+                              <p className="font-mono text-[9.5px] tracking-[0.22em] uppercase text-[#a8700a]">Pour aller plus loin ↗</p>
+                              <div className="mt-2 flex flex-wrap gap-2">
+                                {PLUS[ch.t].map((lk) => (
+                                  <a
+                                    key={lk.l}
+                                    href={lk.u}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="font-mono text-[10.5px] uppercase tracking-wide border border-cardink/60 px-2.5 py-1.5 hover:bg-cardink hover:text-paper transition-colors"
+                                  >
+                                    {lk.l}
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
                           )}
                         </div>
                         <div>

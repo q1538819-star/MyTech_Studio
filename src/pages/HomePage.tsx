@@ -4,10 +4,10 @@ import { LABS } from "./AnimationsPage";
 import { Reveal, SectionHead } from "../lib/ui";
 
 const STATS: [string, string][] = [
-  ["11", "animations interactives"],
+  ["13", "animations interactives"],
   ["19", "chapitres de cours"],
-  ["9", "projets guidés"],
-  ["12", "ressources sélectionnées"],
+  ["11", "projets guidés"],
+  ["27", "termes au glossaire"],
   ["12", "questions au quiz"],
 ];
 
@@ -43,7 +43,7 @@ export default function HomePage() {
               index="À la une"
               kicker="Le labo"
               title="Les machines du studio"
-              desc="Chaque animation est un petit banc d'essai : on règle, on déclenche, on observe. En voici six — les onze t'attendent au labo."
+              desc="Chaque animation est un petit banc d'essai : on règle, on déclenche, on observe. En voici six — les treize t'attendent au labo."
             />
             <Reveal delay={200}>
               <a href="#/animations" className="shrink-0 font-mono text-xs tracking-[0.2em] uppercase px-5 py-3 bg-orangeT text-ink font-semibold hover:bg-yellowT transition-colors inline-flex items-center gap-2.5">
@@ -84,12 +84,10 @@ export default function HomePage() {
             <div className="mt-10 border border-dashed border-cyanT/50 bg-cyanT/5 px-5 py-4 flex flex-wrap items-center gap-x-4 gap-y-2">
               <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-cyanT border border-cyanT/60 px-2 py-1">Nouveautés</span>
               <p className="text-[13px] text-fog">
-                Six nouvelles machines au labo : <a href="#/animations/materiaux" className="text-snow underline underline-offset-2 decoration-cyanT hover:text-cyanT">matériaux</a>,{" "}
-                <a href="#/animations/structures" className="text-snow underline underline-offset-2 decoration-cyanT hover:text-cyanT">pont en treillis</a>,{" "}
-                <a href="#/animations/algo" className="text-snow underline underline-offset-2 decoration-cyanT hover:text-cyanT">barrière programmée</a>,{" "}
-                <a href="#/animations/energies" className="text-snow underline underline-offset-2 decoration-cyanT hover:text-cyanT">solaire + éolien</a>,{" "}
-                <a href="#/animations/reseaux" className="text-snow underline underline-offset-2 decoration-cyanT hover:text-cyanT">réseaux</a> et{" "}
-                <a href="#/animations/mecanismes" className="text-snow underline underline-offset-2 decoration-cyanT hover:text-cyanT">mécanismes</a>.
+                <strong className="text-orangeT">Nouveau, façon techno-flash :</strong>{" "}
+                <a href="#/animations/cdc" className="text-snow underline underline-offset-2 decoration-orangeT hover:text-orangeT">cahier des charges fonctionnel</a>,{" "}
+                <a href="#/animations/algorigramme" className="text-snow underline underline-offset-2 decoration-orangeT hover:text-orangeT">algorigramme à exécuter</a> et{" "}
+                <a href="#/animations/energie" className="text-snow underline underline-offset-2 decoration-orangeT hover:text-orangeT">chaîne d'énergie à reconstituer</a>.
               </p>
             </div>
           </Reveal>
